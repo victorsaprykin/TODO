@@ -7,26 +7,22 @@ const todoCompleted = document.querySelector(".todo-completed");
 const removeTodoList = document.querySelector(".todo-remove");
 
 let toDoData = [];
-const saveToStorage = function() {
-   localStorage.setItem("todoList", JSON.stringify(toDoData));
-   console.log(toDoData);
-}
-// Здесь начинается "корявый" код
-let loadFromStorage = function() {
-  if (localStorage.getItem('todoList')) {
-    toDoData = JSON.parse(localStorage.getItem('todoList'))
-  }
-  else {
-    toDoData = []
-  }
-}
+const saveToStorage = function () {
+  localStorage.setItem("todoList", JSON.stringify(toDoData));
+  console.log(toDoData);
+};
 
+let loadFromStorage = function () {
+  if (localStorage.getItem("todoList")) {
+    toDoData = JSON.parse(localStorage.getItem("todoList"));
+  } else {
+    toDoData = [];
+  }
+};
 
 loadFromStorage();
-// Здесь "корявый" код заканчивается
-const render = function () {
 
- 
+const render = function () {
   todoList.innerHTML = "";
   todoCompleted.innerHTML = "";
 
@@ -45,13 +41,12 @@ const render = function () {
     } else {
       todoList.append(li);
     }
-   saveToStorage();
-    
+    saveToStorage();
+
     li.querySelector(".todo-complete").addEventListener("click", function () {
       item.completed = !item.completed;
-      
+
       render();
-      
     });
 
     li.querySelector(".todo-remove").addEventListener("click", function () {
@@ -59,13 +54,10 @@ const render = function () {
       toDoData.splice(todoIndex, 1);
       saveToStorage();
       render();
-    
     });
-    
   });
-
 };
-  
+
 todoControl.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -82,7 +74,5 @@ todoControl.addEventListener("submit", function (e) {
   }
 
   render();
-
-
 });
-render()
+render();
