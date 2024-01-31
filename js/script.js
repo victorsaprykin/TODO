@@ -6,23 +6,23 @@ const todoList = document.querySelector(".todo-list");
 const todoCompleted = document.querySelector(".todo-completed");
 const removeTodoList = document.querySelector(".todo-remove");
 
-const toDoData = [];
+let toDoData = [];
 const saveToStorage = function() {
    localStorage.setItem("todoList", JSON.stringify(toDoData));
    console.log(toDoData);
 }
 // Здесь начинается "корявый" код
-// let loadFromStorage = function() {
-//   if (localStorage.getItem('todoList')) {
-//     toDoData = JSON.parse(localStorage.getItem('todoList'))
-//   }
-//   else {
-//     toDoData = []
-//   }
-// }
+let loadFromStorage = function() {
+  if (localStorage.getItem('todoList')) {
+    toDoData = JSON.parse(localStorage.getItem('todoList'))
+  }
+  else {
+    toDoData = []
+  }
+}
 
 
-// loadFromStorage();
+loadFromStorage();
 // Здесь "корявый" код заканчивается
 const render = function () {
 
@@ -85,4 +85,4 @@ todoControl.addEventListener("submit", function (e) {
 
 
 });
-console.log(todoList);
+render()
