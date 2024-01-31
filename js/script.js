@@ -12,17 +12,17 @@ const saveToStorage = function() {
    console.log(toDoData);
 }
 // Здесь начинается "корявый" код
-let loadFromStorage = function() {
-  if (localStorage.getItem('todoList')) {
-    toDoData = JSON.parse(localStorage.getItem('todoList'))
-  }
-  else {
-    toDoData = []
-  }
-}
+// let loadFromStorage = function() {
+//   if (localStorage.getItem('todoList')) {
+//     toDoData = JSON.parse(localStorage.getItem('todoList'))
+//   }
+//   else {
+//     toDoData = []
+//   }
+// }
 
 
-loadFromStorage();
+// loadFromStorage();
 // Здесь "корявый" код заканчивается
 const render = function () {
 
